@@ -93,6 +93,7 @@ $LogMtx = New-Object System.Threading.Mutex($False, "LogMtx")
 $LogMtx.WaitOne() | Out-Null
 
 try {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-RestMethod	-Method Post `
         -ContentType "application/json" `
         -Body $json `
