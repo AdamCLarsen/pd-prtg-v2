@@ -26,7 +26,7 @@ Param(
 
 # Determine the Event Action
 $regex = [regex] "\((.*)\)"
-$action = $regex::match($status, $regex).groups[1]
+$action = $regex.match($status).groups[1].Value
 
 switch ($action) {
     "now: Up" { $PDevent = "resolve" }
